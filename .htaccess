@@ -1,0 +1,25 @@
+RewriteEngine on
+
+RewriteRule ^(kontakty|profil|registrace|prihlaseni|napady|navrh|navrhy|realizace|spoluprace)$ $1.php [NC,L]
+
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.php\ HTTP/
+RewriteRule ^index\.php$ http://www.mafianje.chytrak.cz/ [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+
+
+
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+
+RewriteCond %{HTTP_USER_AGENT} !(BlackBerry)
+
+RewriteCond %{HTTP_USER_AGENT} !(Windows\sNT\s5\.[12])
+
+RewriteCond %{HTTP_HOST} ^(www\.)?hrazanapad.cz
+
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L]
+
+php_value upload_max_filesize 512M
+

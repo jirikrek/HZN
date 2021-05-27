@@ -1,0 +1,13 @@
+{
+    "name": "jiri/cms",
+    "require": {
+        "phpmailer/phpmailer": "^6.0"
+    },
+    "authors": [
+        {
+            "name": "Jiri Krek",
+            "email": "j.krek@seznam.cz"
+        }
+    ]
+}
+
